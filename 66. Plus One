@@ -1,0 +1,22 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int left=digits.length-1;
+
+        for(int i=left;i>=0;i--){
+            if(digits[i]+1<10){
+                digits[i]++;
+                return digits;
+
+            }
+            else{
+                digits[i]=0;
+            }
+        }
+               digits=new int[digits.length+1];
+               digits[0]=1;
+               return digits;
+            
+            
+        
+    }
+}
