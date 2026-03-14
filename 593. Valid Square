@@ -1,0 +1,40 @@
+class Solution {
+    public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
+        Map<Double,ArrayList<int[]>>map=new HashMap<>();
+        List<int[]>point=new ArrayList<>();
+        point.add(p1);
+        point.add(p2);
+        point.add(p3);
+        point.add(p4);
+
+        for(int i=0;i<point.size();i++){
+            for(int j=i+1;j<point.size();j++){
+                double d=Math.sqrt(
+                    Math.pow(point.get(j)[0] - point.get(i)[0],2) + 
+                    Math.pow(point.get(j)[1] - point.get(i)[1],2));
+                if(d>0){
+                    if(!map.containsKey(d)){
+                        map.put(d,new ArrayList<int[]>());
+                    }
+                        map.get(d).add(point.get(i));
+                        map.get(d).add(point.get(j));
+                    
+                }
+                    else{
+                        return false;
+                    }
+            }
+        }
+                if(map.size()==2){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            
+        
+
+
+
+    }
+}
