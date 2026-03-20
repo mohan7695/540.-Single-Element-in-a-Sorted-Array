@@ -1,0 +1,13 @@
+class Solution {
+    public double[] convertTemperature(double celsius) {
+        List<Double> list=new ArrayList<>();
+//List<Double> kel=new Arraylist<>();
+     double kelvin= celsius+273.15;
+        list.add(kelvin);
+
+       double fah=celsius*1.80+32.00;
+        list.add(fah);
+
+    return new double[]{list.get(0),list.get(1)};
+                }
+}
