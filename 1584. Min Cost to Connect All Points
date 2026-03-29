@@ -1,0 +1,28 @@
+class Solution {
+    public int minCostConnectPoints(int[][] points) {
+        int n=points.length;
+        int total=0;
+   Queue<int[]> queue=new PriorityQueue<>((a,b)->a[1]-b[1]);
+    boolean[] found =new boolean[n];
+  queue.offer(new int[] {0,0});
+
+  while(!queue.isEmpty()){
+    int[] vertex=queue.poll();
+    int first=vertex[0];
+    int second=vertex[1];
+
+    if(found[first]){
+        continue;
+    }
+    found[first]=true;
+    total+=second;
+    for(int i=0;i<n;i++){
+        if(!found[i]){
+            int distance=Math.abs(points[i][0]-points[first][0])+Math.abs(points[i][1]-points[first][1]);
+            queue.offer(new int[] {i,distance});
+        }
+    }
+  }
+return total;
+    }
+}
