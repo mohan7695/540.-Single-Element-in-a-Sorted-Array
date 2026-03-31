@@ -1,0 +1,59 @@
+class Solution {
+    public String generateString(String str1, String str2) {
+        int n=str1.length();
+        int m=str2.length();
+
+        int len=(n+m)-1;
+
+        char[] word=new char[len];
+        boolean[] value=new boolean[len];
+        // Apply placeholder to set these values
+        Arrays.fill(word,'#');
+
+        for(int i=0;i<n;i++){
+            if(str1.charAt(i)=='T'){
+               for(int j=0;j<m;j++){
+                int idx=i+j;
+                if(word[idx]!='#' && word[idx]!=str2.charAt(j)){
+                    return "";
+                }
+                word[idx]=str2.charAt(j);
+                value[idx]=true;//can be change after true will comes
+               }
+            }
+            
+        }
+        for(int i=0;i<len;i++){
+            if(word[i]=='#'){
+                word[i]='a';
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            if(str1.charAt(i)=='F'){
+            if(matches(word,str2,i)){
+                boolean broken=false;
+
+                for(int j=m-1;j>=0;j--){
+                    int idx=i+j;
+                    if(!value[idx]){
+                        word[idx]=(str2.charAt(j)=='a')? 'b':'a';
+                        broken=true;
+                        break;
+                    }
+                }
+                if(!broken) return "";
+            }
+            }
+        }
+return new String(word);
+    }
+private boolean matches(char[] word,String str2,int start){
+    for(int j=0;j<str2.length();j++){
+        if(word[start+j]!=str2.charAt(j)){
+            return false;
+        }
+    }
+    return true;
+}
+}
