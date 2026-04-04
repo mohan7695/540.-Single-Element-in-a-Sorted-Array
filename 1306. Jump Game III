@@ -1,0 +1,22 @@
+class Solution {
+    public boolean canReach(int[] arr, int start) {
+       
+        Queue<Integer> queue=new LinkedList<>();
+
+        queue.add(start);
+
+        while(!queue.isEmpty()){
+            int delete=queue.poll();
+
+
+            if(arr[delete]==0) return true;
+if(arr[delete]<0) continue;
+            if(delete+arr[delete]<arr.length) queue.add(delete+arr[delete]);
+
+            if(delete-arr[delete] >=0) queue.add(delete-arr[delete]);
+
+            arr[delete]=-arr[delete];
+        }
+return false;
+    }
+}
