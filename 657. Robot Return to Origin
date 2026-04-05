@@ -1,0 +1,14 @@
+class Solution {
+    public boolean judgeCircle(String moves) {
+        int value=0,total=0;
+       for(final char c:moves.toCharArray()){
+        switch(c){
+            case 'U':value++;break;
+            case 'D': value--; break;
+            case 'L': total++; break;
+            case 'R' :total--; break;
+        }
+       }
+       return total==0 && value==0;
+    }
+}
