@@ -1,0 +1,17 @@
+class Solution {
+    public int mirrorDistance(int n) {
+        int q=n;
+        int k=0;
+        int d=0;
+        while(n>0){
+            
+             k= n%10+(k*10);
+            n=n/10;
+
+        
+        }
+
+   
+    return Math.abs(q-k);
+    }
+}
