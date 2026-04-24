@@ -1,0 +1,19 @@
+class Solution {
+    public int furthestDistanceFromOrigin(String moves) {
+        int max=0,maxw=0,blank=0;
+        int n=moves.length();
+        for(int i=0;i<n;i++){
+            if(moves.charAt(i) == 'L'){
+             max++;
+            }
+            else if(moves.charAt(i) == 'R'){
+                maxw++;
+            }
+            else{
+                blank++;
+            }
+        }
+        int k=  Math.abs(max-maxw);
+        return k+blank;
+    }
+}
