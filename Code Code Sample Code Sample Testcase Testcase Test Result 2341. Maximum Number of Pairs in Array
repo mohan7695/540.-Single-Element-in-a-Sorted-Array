@@ -1,0 +1,17 @@
+class Solution {
+    public int[] numberOfPairs(int[] nums) {
+    
+      HashSet<Integer>set=new HashSet<>();
+     int count=0;
+     int[]dp=new int[2];
+    for(int n:nums){
+        if(!set.add(n)){
+            count++;
+            set.remove(n);
+        }
+    }
+    dp[0]=count;
+    dp[1]=set.size();
+     return dp;
+    }
+}
