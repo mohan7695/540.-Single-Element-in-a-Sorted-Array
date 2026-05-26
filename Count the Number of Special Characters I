@@ -1,0 +1,18 @@
+class Solution {
+    public int numberOfSpecialChars(String word) {
+        Set<Character>set=new HashSet<>();
+        for(char a : word.toCharArray()){
+            set.add(a);
+        }
+
+        int result=0;
+
+        for(char b='a';b<='z';b++){
+        
+            if(set.contains(b) && set.contains( (char)(b - 'a' + 'A'))){
+                result++;
+            }
+        }
+        return result;
+    }
+}
