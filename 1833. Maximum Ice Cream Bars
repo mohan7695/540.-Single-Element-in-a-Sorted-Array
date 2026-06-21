@@ -1,0 +1,24 @@
+class Solution {
+    public int maxIceCream(int[] costs, int coins) {
+        int count=0;
+        for(int i:costs){
+            count=Math.max(i,count);
+        }
+
+        int[] arr=new int[count+1];
+
+        for(int i :costs){
+            arr[i]++;
+        }
+int answer=0;
+        for(int i=1;i<=count;i++){
+            while(arr[i]>0 && coins>=i){
+                coins-=i;
+                answer++;
+                arr[i]--;
+            }
+        }
+            return answer;
+        
+    }
+}
