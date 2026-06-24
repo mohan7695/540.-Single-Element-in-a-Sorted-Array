@@ -1,0 +1,29 @@
+class Solution {
+    public String maximumOddBinaryNumber(String s) {
+        String arr=new String("");
+        int count=0;
+        int zero=0;
+        for(char c:s.toCharArray()){
+            if(c=='1'){
+                count++;
+                
+            }
+            else{
+                zero++;
+            }
+        }
+
+           StringBuilder bit=new StringBuilder();
+           bit.append("1");
+           count--;
+
+           bit.append("0".repeat(zero));
+          // zero--;
+
+           bit.append("1".repeat(count));
+           //count--;
+
+        return bit.reverse().toString();
+
+    }
+}
