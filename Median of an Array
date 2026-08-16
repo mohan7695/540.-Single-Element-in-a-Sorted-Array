@@ -1,0 +1,26 @@
+class Solution {
+	public double findMedian(int[] arr) {
+	
+		int ne = arr.length;
+		int sum = 0;
+		int d = 0;
+		double total=0;
+		Arrays.sort(arr);
+		if ((ne &1) == 1) {
+		    
+			d = ne/2;
+			return arr[d];
+		}
+		
+		else {
+		
+		int mid = ne/2;
+		int value=arr[mid-1];
+		
+	int a= 2;
+		
+		 total=(double) (arr[mid] + value)/a;
+		}
+		return total;
+	}
+}
