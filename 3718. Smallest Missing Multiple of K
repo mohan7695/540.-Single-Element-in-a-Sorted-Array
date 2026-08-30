@@ -1,0 +1,23 @@
+class Solution {
+    public int missingMultiple(int[] nums, int k) {
+        List<Integer> set=new ArrayList<>();
+
+        for(int n : nums){
+            set.add(n);
+        }
+int val =1;
+        while(true){
+
+            int d =val * k;
+             val= val+1;
+            if(set.contains(d)){
+                continue;
+            }
+            else{
+                return d;
+            }
+            
+        }
+       // return -1;
+    }
+}
