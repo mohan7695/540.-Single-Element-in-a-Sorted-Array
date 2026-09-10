@@ -1,0 +1,48 @@
+class Solution {
+    public boolean detectCapitalUse(String word) {
+    if(allower(word) || allupper(word) || inbet(word)){
+        return true;
+    } 
+    return false;
+    }
+    public boolean allower(String word){
+        int count=0;
+
+        for(int i=0;i<word.length();i++){
+            char ch =word.charAt(i);
+
+            if(Character.isUpperCase(ch)){
+                count++;
+            }
+        }
+
+        if(word.length() == count){
+            return true;
+        }
+        return false;
+    }
+     public boolean allupper(String word){
+        int count=0;
+
+        for(int i=0;i<word.length();i++){
+            char ch =word.charAt(i);
+
+            if(Character.isLowerCase(ch)){
+                count++;
+            }
+        }
+
+        if(word.length() == count){
+            return true;
+        }
+        return false;
+    }
+    public boolean inbet(String word){
+        char ch=word.charAt(0);
+String sub = word.substring(1);
+        if(Character.isUpperCase(ch) && allupper(sub)){
+            return true;
+        }
+        return false;
+    }
+}
