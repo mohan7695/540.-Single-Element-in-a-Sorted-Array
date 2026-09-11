@@ -1,0 +1,15 @@
+class Solution {
+    public int[] findIndices(int[] nums, int indexDifference, int valueDifference) {
+      //  int i=0,j=nums.length-1;
+
+        for(int i=0;i<nums.length;i++){
+            for(int j=0;j<nums.length;j++){
+            int k= Math.abs(nums[i]-nums[j]);
+            if(k >= valueDifference  && Math.abs(i-j) >= indexDifference){     
+                    return new int[]{i,j}; 
+            }
+            }
+        }
+        return new int[]{-1,-1};
+    }
+}
