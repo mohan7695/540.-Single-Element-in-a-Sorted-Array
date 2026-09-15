@@ -1,0 +1,13 @@
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        Arrays.sort(prices);
+
+        int sum = prices[0];
+        int s2 = prices[1];
+        int d = sum + s2 ;
+        if (d <= money) {
+            return money-d;
+        }
+        return money;
+    }
+}
