@@ -1,0 +1,18 @@
+class Solution {
+    public long maxProduct(int[] nums) {
+        int firstMax=0;
+        int secondMax=0;
+        for(int n : nums){
+             int abs=Math.abs(n);
+
+             if(abs > firstMax){
+                secondMax=firstMax;
+                firstMax=abs;
+             }else if( abs > secondMax){
+                secondMax=abs;
+             }
+        }
+        return (long)firstMax*secondMax*1_00_000L;
+
+    }
+}
