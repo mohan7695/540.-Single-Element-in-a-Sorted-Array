@@ -1,0 +1,33 @@
+class Solution {
+    public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> set1 = new HashSet<>();
+        for (int q : nums1)
+            set1.add(q);
+        HashSet<Integer> set2 = new HashSet<>();
+        for (int qe : nums2)
+            set2.add(qe);
+        HashSet<Integer> set3 = new HashSet<>();
+        for (int qer : nums3)
+            set3.add(qer);
+
+        for (int n : set1) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
+        }
+        List<Integer> list = new ArrayList<>();
+        for (int k : set2) {
+            map.put(k, map.getOrDefault(k, 0) + 1);
+        }
+        for (int m : set3) {
+            map.put(m, map.getOrDefault(m, 0) + 1);
+        }
+
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+
+            if (entry.getValue() >= 2) {
+                list.add(entry.getKey());
+            }
+        }
+        return list;
+    }
+}
