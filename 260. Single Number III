@@ -1,0 +1,25 @@
+class Solution {
+    public int[] singleNumber(int[] nums) {
+        int[] arr = new int[2];
+        int count = 0;
+
+        if (nums.length == 2) {
+            return nums;
+        }
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int n : nums) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
+        }
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                arr[count++] = entry.getKey();
+            }
+            if (count == 2) {
+                return arr;
+            }
+        }
+        return new int[] {};
+    }
+}
