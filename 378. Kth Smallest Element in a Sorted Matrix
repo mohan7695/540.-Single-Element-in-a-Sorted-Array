@@ -1,0 +1,18 @@
+class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+
+        for (int[] row : matrix) {
+            for (int col : row) {
+                pq.add(col);
+
+                if (pq.size() > k) {
+                    pq.remove();
+                }
+            }
+        }
+       
+
+        return pq.peek();
+    }
+}
